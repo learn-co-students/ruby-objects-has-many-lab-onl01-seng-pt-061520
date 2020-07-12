@@ -26,3 +26,29 @@ class Artist
     Song.all.size
   end
 end
+
+class Song
+  attr_accessor :artist, :name, :genre
+ 
+  @@all = []
+ 
+  def initialize(name)
+    @name = name
+    save
+  end
+ 
+  def save
+    @@all << self
+  end
+ 
+  def self.all
+    @@all
+  end
+end
+
+lil_nas_x = Artist.new("Lil Nas X")
+old_town_road = Song.new("Old Town Road")
+ 
+old_town_road.artist = lil_nas_x
+ 
+puts old_town_road.artist.name
